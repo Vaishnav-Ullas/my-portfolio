@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+// import styles from './Contact.module.css'; // No longer needed if all styles are inline
 
 const Contact = forwardRef<HTMLElement>((props, ref) => {
     return (
@@ -9,7 +10,7 @@ const Contact = forwardRef<HTMLElement>((props, ref) => {
                     I'm always open to new opportunities and interesting projects. Let's build something amazing together!
                 </p>
                 <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:your.email@example.com" // Consider making email configurable
                     className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300"
                 >
                     Say Hello

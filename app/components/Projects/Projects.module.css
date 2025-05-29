@@ -1,0 +1,4 @@
+/* app/components/Projects/Projects.module.css */
+
+/* All classes previously here used @apply and have been moved to inline styles in the component. */
+/* This file can be deleted if no custom module-specific styles are needed. */ 

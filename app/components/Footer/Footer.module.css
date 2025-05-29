@@ -1,0 +1,20 @@
+/* app/components/Footer/Footer.module.css */
+
+/* All classes previously here used @apply or were empty, and have been moved to inline styles or are default. */
+/* This file can be deleted if no custom module-specific styles are needed, or if these class shells are not intended for future use. */
+
+.footer {
+    /* No specific Tailwind class for the <p> itself, default text styles apply */
+}
+
+.container {
+    /* No specific Tailwind class for the <p> itself, default text styles apply */
+}
+
+.copyright {
+    /* No specific Tailwind class for the <p> itself, default text styles apply */
+}
+
+.tagline {
+    /* No specific Tailwind class for the <p> itself, default text styles apply */
+} 

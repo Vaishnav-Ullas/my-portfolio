@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+// import styles from './About.module.css'; // No longer needed if all styles are inline
 
 const About = forwardRef<HTMLElement>((props, ref) => {
     return (
@@ -13,7 +14,7 @@ const About = forwardRef<HTMLElement>((props, ref) => {
                     </div>
                     <div className="md:order-1">
                         <p className="text-lg text-gray-200 mb-4">
-                            As a **Full-Stack Developer**, Vaishnav thrives on turning complex challenges into elegant solutions. With a strong foundation in both front-end aesthetics and back-end logic, Vaishnav builds robust and user-friendly applications that drive engagement and deliver real value.
+                            As a <strong>Full-Stack Developer</strong>, Vaishnav thrives on turning complex challenges into elegant solutions. With a strong foundation in both front-end aesthetics and back-end logic, Vaishnav builds robust and user-friendly applications that drive engagement and deliver real value.
                         </p>
                         <p className="text-lg text-gray-200 mb-4">
                             Specializing in technologies that bring ideas to life, Vaishnav is dedicated to writing clean, efficient, and scalable code. With expertise in modern web technologies and a passion for creating seamless user experiences, every project is an opportunity to innovate and excel.
@@ -31,6 +32,6 @@ const About = forwardRef<HTMLElement>((props, ref) => {
     );
 });
 
-About.displayName = 'About'; // Optional: for better debugging
+About.displayName = 'About';
 
 export default About; 

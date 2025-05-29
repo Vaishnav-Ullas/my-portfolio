@@ -21,10 +21,10 @@ export default function Home() {
     return (
         <>
             <Header 
-                aboutRef={aboutRef as RefObject<HTMLElement>} 
-                timelineRef={timelineRef as RefObject<HTMLElement>} 
-                projectsRef={projectsRef as RefObject<HTMLElement>} 
-                contactRef={contactRef as RefObject<HTMLElement>} 
+                aboutRef={aboutRef}
+                timelineRef={timelineRef}
+                projectsRef={projectsRef}
+                contactRef={contactRef}
             />
             <main>
                 <Hero /> {/* Hero section typically does not need a ref for nav scrolling */}

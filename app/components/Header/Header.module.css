@@ -1,0 +1,13 @@
+/* app/components/Header/Header.module.css */
+
+/* .header can be removed if all styling is inline */
+/* .container can be removed if all styling is inline */
+/* .logo can be removed if all styling is inline */
+/* .navList can be removed if all styling is inline */
+
+.navButton {
+    /* Custom styles that are not easily replicable with Tailwind or are preferred here */
+    padding: 0;
+    appearance: none;
+    /* Keep other custom styles if any, or add them here if .navButton needs specific non-Tailwind styling */
+} 

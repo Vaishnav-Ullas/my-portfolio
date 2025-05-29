@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, createRef, forwardRef } from 'react';
-import { timelineData } from '../data/timelineData';
+import { timelineData } from '../../data/timelineData';
+import styles from './Timeline.module.css';
 
-// The main Timeline component, already a forwardRef for page-level scrolling
 const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
-    // Create an array of refs for individual timeline items
     const itemRefs = useRef<Array<React.RefObject<HTMLDivElement>>>([]);
-    // Populate the refs array, ensuring it matches the length of timelineData
     if (itemRefs.current.length !== timelineData.length) {
         itemRefs.current = timelineData.map((_, i) => itemRefs.current[i] ?? createRef<HTMLDivElement>());
     }
@@ -20,10 +18,9 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+                    entry.target.classList.add(styles.timelineItemBoxVisible);
                 } else {
-                    // Optional: remove 'is-visible' when out of view to re-trigger on scroll back
-                    // entry.target.classList.remove('is-visible');
+                    entry.target.classList.remove(styles.timelineItemBoxVisible);
                 }
             });
         }, observerOptions);
@@ -35,7 +32,6 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
             }
         });
 
-        // Cleanup observer on component unmount
         return () => {
             currentItemRefs.forEach(itemRef => {
                 if (itemRef.current) {
@@ -43,7 +39,7 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
                 }
             });
         };
-    }, []); // Empty dependency array: effect runs once on mount, cleans up on unmount.
+    }, []);
 
     return (
         <section id="timeline" ref={sectionRef} className="py-16 bg-gray-900 relative overflow-hidden">
@@ -53,19 +49,21 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
                     Explore key milestones and experiences in my professional journey. As you scroll, details about each year will gracefully appear, providing a chronological overview of my growth and contributions.
                 </p>
                 <div className="relative w-full max-w-4xl mx-auto">
-                    {/* Central Timeline Line */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-600 h-full"></div>
-
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-blue-400 rounded-full ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-900"></div>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-6 h-6 bg-blue-400 rounded-full ring-2 ring-blue-500 ring-offset-2 ring-offset-gray-900"></div>
                     <div id="timeline-events" className="space-y-16 py-8">
                         {timelineData.map((item, index) => {
                             const isEven = index % 2 === 0;
+                            const entryClasses = `flex items-center w-full ${isEven ? 'md:justify-start' : 'md:justify-end'}`;
+                            const contentWrapperClasses = `w-full md:w-1/2 relative ${isEven ? 'md:pr-10' : 'md:pl-10'}`;
+
                             return (
-                                <div key={item.year + item.title} className={`flex items-center w-full ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
-                                    <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-10' : 'md:pl-10'} relative`}>
-                                        {/* This is the div that gets animated and needs the ref */}
+                                <div key={item.year + item.title} className={entryClasses}>
+                                    <div className={contentWrapperClasses}>
                                         <div
                                             ref={itemRefs.current[index]}
-                                            className="bg-gray-800 p-6 rounded-lg shadow-lg timeline-item"
+                                            className={`${styles.timelineItemBox} bg-gray-800 p-6 rounded-lg shadow-lg`}
                                         >
                                             <h3 className="text-2xl font-bold text-blue-400 mb-2">{item.year}</h3>
                                             <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>

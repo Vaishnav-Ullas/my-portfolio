@@ -1,4 +1,5 @@
 import React from 'react';
+// import styles from './ProjectCard.module.css'; // No longer needed if all styles are inline
 
 interface ProjectCardProps {
     title: string;

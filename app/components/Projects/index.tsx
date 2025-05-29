@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../ProjectCard'; // Path is now ../ProjectCard/index.tsx
+// import styles from './Projects.module.css'; // No longer needed if all styles are inline
 
 const Projects = forwardRef<HTMLElement>((props, ref) => {
     const projects = [
