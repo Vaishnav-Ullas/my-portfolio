@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -23,4 +25,38 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px; /* adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px; /* Base height */
+    max-height: 450px; /* Max height to prevent excessive vertical size */
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+
+/* Custom styles for timeline */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typing effect for hero section */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.typing-cursor {
+    animation: blink 1s step-end infinite;
 }
