@@ -3,8 +3,6 @@
 /* Styles for .heroSection, .container, .title, .subtitle, .buttonContainer, */
 /* .primaryButton, .secondaryButton were moved to inline Tailwind classes in Hero/index.tsx. */
 
-.cursor {
-    /* This class is referenced in Hero/index.tsx. */
-    /* Visual styling (like text color) and global animation classes (like 'typing-cursor') are applied directly in the TSX. */
-    /* This class can be used for JavaScript hooks or if module-specific, non-Tailwind animations/styles are ever needed for the cursor. */
+.particlesContainer {
+    z-index: -1;
 } 
