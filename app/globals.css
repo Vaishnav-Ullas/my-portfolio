@@ -11,6 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,19 +27,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.chart-container {
-    position: relative;
-    width: 100%;
-    max-width: 700px; /* adjust as needed */
-    margin-left: auto;
-    margin-right: auto;
-    height: 350px; /* Base height */
-    max-height: 450px; /* Max height to prevent excessive vertical size */
-}
-@media (min-width: 768px) {
-    .chart-container {
-        height: 400px;
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.7s ease-out forwards;
 }
 
 /* Typing effect for hero section */

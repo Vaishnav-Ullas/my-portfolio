@@ -145,14 +145,14 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
                 className={`absolute top-0 left-0 w-full h-full  -z-1`} // Position behind content
             />
             <div className="container mx-auto px-4 relative z-10"> {/* Content needs higher z-index */}
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                    Hello, I'm Vaishnav
+                <h1 className="text-4xl md:text-5xl font-poppins font-extrabold text-white mb-4">
+                    Hello, I'm Vaishnav!
                     <br />
-                    I'm a <span className="text-blue-400">{text}</span>
+                    A <span className="text-blue-400">{text}</span>
                     <span className={`typing-cursor text-blue-400 ${styles.cursor}`}>|</span>
                 </h1>
                 <p className="text-xl text-gray-200 mb-8">
-                    Crafting Digital Experiences, One Line of Code at a Time.
+                  Continuously learning, Constantly building, Always evolving!
                 </p>
                 <div className="space-x-4">
                     <button 

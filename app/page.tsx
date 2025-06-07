@@ -18,6 +18,23 @@ export default function Home() {
 
     // useEffect for smooth scrolling is removed as Header will handle it.
 
+    const executeScroll = (refName: string) => {
+        let refToScroll: RefObject<HTMLElement | null> | null = null;
+        if (refName === 'aboutRef') { // Hero doesn't scroll to about, but good to have for future
+            refToScroll = aboutRef;
+        } else if (refName === 'timelineRef') { // Hero doesn't scroll to timeline
+            refToScroll = timelineRef;
+        } else if (refName === 'projectsRef') {
+            refToScroll = projectsRef;
+        } else if (refName === 'contactRef') {
+            refToScroll = contactRef;
+        }
+
+        if (refToScroll && refToScroll.current) {
+            refToScroll.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <Header 
@@ -27,7 +44,7 @@ export default function Home() {
                 contactRef={contactRef}
             />
             <main>
-                <Hero /> {/* Hero section typically does not need a ref for nav scrolling */}
+                <Hero executeScroll={executeScroll} /> {/* Hero section typically does not need a ref for nav scrolling */}
                 <About ref={aboutRef} />
                 <Timeline ref={timelineRef} />
                 <Projects ref={projectsRef} />
