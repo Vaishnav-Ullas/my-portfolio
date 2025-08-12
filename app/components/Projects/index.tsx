@@ -5,21 +5,27 @@ import ProjectCard from '../ProjectCard'; // Path is now ../ProjectCard/index.ts
 const Projects = forwardRef<HTMLElement>((props, ref) => {
     const projects = [
         {
-            title: 'Project Title One',
-            description: 'A brief description of this exciting project, highlighting key technologies used and the problem it solved.',
-            imageAlt: 'Project 1 Placeholder',
+            title: 'SSD Failure Detection',
+            description: 'Analyze and improve conventional machine learning models to assess effectiveness in predicting failed solid-state drive(SSD) disks using historical SMART data.',
+            imageAlt: 'SSD Failure Detection',
             link: '#'
         },
         {
-            title: 'Project Title Two',
-            description: 'Another impactful project with a focus on [Key Aspect] and its successful outcome, demonstrating a specific skill.',
-            imageAlt: 'Project 2 Placeholder',
+            title: 'Code Complexity Analyzer',
+            description: 'A Python Program to calculate lines of code and complexity for each class in the given directory.',
+            imageAlt: 'Code Complexity Analyzer',
             link: '#'
         },
         {
-            title: 'Project Title Three',
-            description: 'Showcasing innovative solutions and clean code practices in this application, perhaps for a specific industry.',
-            imageAlt: 'Project 3 Placeholder',
+            title: 'Image Annotation Tool',
+            description: 'Designed and developed a custom Image Annotation tool using Angular and JavaScript, utilizing HTML5 and Canvas to provide an efficient platform for annotating images',
+            imageAlt: 'Image Annotation Tool',
+            link: '#'
+        },
+        {
+            title: 'Personal Portfolio',
+            description: '',
+            imageAlt: 'Personal Portfolio',
             link: '#'
         }
     ];
