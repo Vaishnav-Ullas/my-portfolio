@@ -1,12 +1,11 @@
-import React, { forwardRef, useEffect, useState, useCallback } from 'react';
+import React, { forwardRef, useEffect, useState, useCallback, RefObject } from 'react';
 import Particles from 'react-tsparticles';
 import type { Engine } from 'tsparticles-engine';
-import { loadSlim } from 'tsparticles-slim'; // or tsparticles if you installed the full engine
+import { loadSlim } from 'tsparticles-slim';
 import styles from './Hero.module.css';
+import { useScrollToSection } from '../../hooks/useScrollToSection';
 
 const particlesConfig = {
-  // We will not set a background color for the particles canvas itself
-  // so that the hero section's background shows through.
   fpsLimit: 60,
   interactivity: {
     events: {
@@ -90,20 +89,20 @@ const particlesConfig = {
 };
 
 interface HeroProps {
-    executeScroll: (refName: string) => void;
+    projectsRef: RefObject<HTMLElement | null>;
+    contactRef: RefObject<HTMLElement | null>;
 }
 
-const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
+const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, ref) => {
     const [text, setText] = useState('');
     const titles = ["Full-Stack Developer", "Tech Enthusiast", "Lifelong Learner", "Photographer"];
     const [titleIndex, setTitleIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
+    const { scrollToSection } = useScrollToSection();
 
     const particlesInit = useCallback(async (engine: Engine) => {
-
         await loadSlim(engine);
-
     }, []);
 
     useEffect(() => {
@@ -114,7 +113,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
             if (text.length > 0) {
                 timeoutId = setTimeout(() => {
                     setText(currentTitle.substring(0, text.length - 1));
-                }, 100); // Deleting speed
+                }, 100);
             } else {
                 setIsDeleting(false);
                 setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
@@ -124,11 +123,11 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
             if (text.length < currentTitle.length) {
                 timeoutId = setTimeout(() => {
                     setText(currentTitle.substring(0, text.length + 1));
-                }, 150); // Typing speed
+                }, 150);
             } else {
                 timeoutId = setTimeout(() => {
                     setIsDeleting(true);
-                }, 2000); // Pause before deleting
+                }, 2000);
             }
         }
 
@@ -136,15 +135,14 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
     }, [text, isDeleting, titleIndex, titles]);
 
     return (
-        <section id="hero" ref={ref} className="bg-gray-800 py-20 text-center min-h-screen flex flex-col justify-center items-center relative -z-1">
+        <section id="hero" ref={ref} className="bg-gray-800 py-20 text-center min-h-screen flex flex-col justify-center items-center relative">
              <Particles
                 id="tsparticles-hero"
                 init={particlesInit}
-                // loaded={particlesLoaded} // Optional: if you want to do something after particles are loaded
-                options={particlesConfig as any} // Cast to any for options, or use ISourceOptions type
-                className={`absolute top-0 left-0 w-full h-full  -z-1`} // Position behind content
+                options={particlesConfig as any}
+                className="absolute top-0 left-0 w-full h-full z-0"
             />
-            <div className="container mx-auto px-4 relative z-10"> {/* Content needs higher z-index */}
+            <div className="container mx-auto px-4 relative z-10">
                 <h1 className="text-4xl md:text-5xl font-poppins font-extrabold text-white mb-4">
                     Hello, I'm Vaishnav!
                     <br />
@@ -154,15 +152,15 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ executeScroll }, ref) => {
                 <p className="text-xl text-gray-200 mb-8">
                   Continuously learning, Constantly building, Always evolving!
                 </p>
-                <div className="space-x-4">
+                <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row items-center justify-center">
                     <button 
-                        onClick={() => executeScroll('projectsRef')} 
+                        onClick={() => scrollToSection(projectsRef)} 
                         className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
                     >
                         View My Work
                     </button>
                     <button 
-                        onClick={() => executeScroll('contactRef')} 
+                        onClick={() => scrollToSection(contactRef)} 
                         className="border border-blue-600 text-blue-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition duration-300"
                     >
                         Get In Touch

@@ -42,7 +42,7 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
     }, []);
 
     return (
-        <section id="timeline" ref={sectionRef} className="py-16 bg-gray-900 relative overflow-hidden">
+        <section id="timeline" ref={sectionRef} className="py-16 bg-gray-900 relative z-10 overflow-hidden">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-white text-center mb-10">My Journey</h2>
                 <p className="text-center text-gray-200 mb-12">

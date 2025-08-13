@@ -29,7 +29,7 @@ const ProjectCard = ({ title, description, image, imageAlt = 'Project Preview', 
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
             <p className="text-gray-300 text-sm mb-4">{description}</p>
-            <a href={link} className="text-blue-400 hover:underline text-sm font-medium">View Details →</a>
+            {/* <a href={link} className="text-blue-400 hover:underline text-sm font-medium">View Details →</a> */}
         </div>
     );
 };

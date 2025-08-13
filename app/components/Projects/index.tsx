@@ -39,7 +39,7 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
     ];
 
     return (
-        <section id="projects" ref={ref} className="py-16 bg-gray-950">
+        <section id="projects" ref={ref} className="py-16 bg-gray-950 relative z-10">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-white text-center mb-10">My Projects</h2>
                 <p className="text-center text-gray-200 mb-8">

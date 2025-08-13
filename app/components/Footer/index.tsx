@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-950 text-gray-300 py-8 text-center">
+        <footer className="bg-gray-950 text-gray-300 py-8 text-center relative z-10">
             <div className="container mx-auto px-4">
                 <p>&copy; {new Date().getFullYear()} Vaishnav. All rights reserved.</p> {/* Default text styles apply */}
                 <p className="text-sm mt-2">Built with passion and Next.js friendly HTML/Tailwind.</p>

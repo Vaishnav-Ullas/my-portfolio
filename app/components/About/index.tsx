@@ -4,7 +4,7 @@ import SkillsSection from '../Skills';
 
 const About = forwardRef<HTMLElement>((props, ref) => {
     return (
-        <section id="about" ref={ref} className="py-16 bg-gray-950">
+        <section id="about" ref={ref} className="py-16 bg-gray-950 relative z-10">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-white text-center mb-10">About Me</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -30,9 +30,11 @@ const About = forwardRef<HTMLElement>((props, ref) => {
                             If you have an opening that might be a good fit, 
                             let's connect and explore the possibilities
                         </p>
-                        <a href="#contact" className="inline-block mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                            Let's Connect
-                        </a>
+                        <div className="text-center md:text-left">
+                            <a href="#contact" className="inline-block mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                                Let's Connect
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
