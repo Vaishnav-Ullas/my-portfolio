@@ -16,7 +16,7 @@ const Header = ({ aboutRef, timelineRef, projectsRef, contactRef }: HeaderProps)
     return (
         <header className="bg-gray-950 shadow-sm py-4">
             <div className="container mx-auto px-4 flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-white">Vaishnav</h1>
+                <h1 className="text-3xl font-black text-white font-dancing-script">Vaishnav</h1>
                 <nav>
                     <ul className="flex space-x-6">
                         <li>
