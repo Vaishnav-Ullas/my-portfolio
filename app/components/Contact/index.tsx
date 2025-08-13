@@ -7,7 +7,7 @@ const Contact = forwardRef<HTMLElement>((props, ref) => {
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold text-white mb-6">Ready to Collaborate?</h2>
                 <p className="text-xl text-gray-200 mb-8">
-                    I'm always open to new opportunities and interesting projects. Let's build something amazing together!
+                    I&apos;m always open to new opportunities and interesting projects. Let&apos;s build something amazing together!
                 </p>
                 <a
                     href={`mailto:${email}`}

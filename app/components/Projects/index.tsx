@@ -12,29 +12,25 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
             title: 'SSD Failure Detection',
             description: 'Analyze and improve conventional machine learning models to assess effectiveness in predicting failed solid-state drive(SSD) disks using historical SMART data.',
             image: ssd_failure,
-            imageAlt: 'SSD Failure Detection',
-            link: '#'
+            imageAlt: 'SSD Failure Detection'
         },
         {
             title: 'Code Complexity Analyzer',
             description: 'A Python Program to calculate lines of code and complexity for each class in the given directory.',
             image: code_complexity,
-            imageAlt: 'Code Complexity Analyzer',
-            link: '#'
+            imageAlt: 'Code Complexity Analyzer'
         },
         {
             title: 'Image Annotation Tool',
             description: 'Designed and developed a custom Image Annotation tool using Angular and JavaScript, utilizing HTML5 and Canvas to provide an efficient platform for annotating images',
             image: image_annotation,
-            imageAlt: 'Image Annotation Tool',
-            link: '#'
+            imageAlt: 'Image Annotation Tool'
         },
         {
             title: 'Personal Portfolio',
             description: '',
             image: portfolio,
-            imageAlt: 'Personal Portfolio',
-            link: '#'
+            imageAlt: 'Personal Portfolio'
         }
     ];
 
@@ -53,7 +49,7 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
                             description={project.description}
                             image={project.image}
                             imageAlt={project.imageAlt}
-                            link={project.link}
+                            // link={project.link}
                         />
                     ))}
                 </div>

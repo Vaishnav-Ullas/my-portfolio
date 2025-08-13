@@ -95,9 +95,7 @@ interface HeroProps {
 
 const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, ref) => {
     const [text, setText] = useState('');
-    const titles = ["Full-Stack Developer", "Tech Enthusiast", "Lifelong Learner", "Photographer"];
     const [titleIndex, setTitleIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const { scrollToSection } = useScrollToSection();
 
@@ -106,6 +104,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
     }, []);
 
     useEffect(() => {
+        const titles = ["Full-Stack Developer", "Tech Enthusiast", "Lifelong Learner", "Photographer"];
         const currentTitle = titles[titleIndex];
         let timeoutId: NodeJS.Timeout;
 
@@ -117,7 +116,6 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
             } else {
                 setIsDeleting(false);
                 setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
-                setCharIndex(0); 
             }
         } else {
             if (text.length < currentTitle.length) {
@@ -132,19 +130,19 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
         }
 
         return () => clearTimeout(timeoutId);
-    }, [text, isDeleting, titleIndex, titles]);
+    }, [text, isDeleting, titleIndex]);
 
     return (
         <section id="hero" ref={ref} className="bg-gray-800 py-20 text-center min-h-screen flex flex-col justify-center items-center relative">
              <Particles
                 id="tsparticles-hero"
                 init={particlesInit}
-                options={particlesConfig as any}
+                options={particlesConfig as object}
                 className="absolute top-0 left-0 w-full h-full z-0"
             />
             <div className="container mx-auto px-4 relative z-10">
                 <h1 className="text-4xl md:text-5xl font-poppins font-extrabold text-white mb-4">
-                    Hello, I'm Vaishnav!
+                    Hello, I&apos;m Vaishnav!
                     <br />
                     A <span className="text-blue-400">{text}</span>
                     <span className={`typing-cursor text-blue-400 ${styles.cursor}`}>|</span>
