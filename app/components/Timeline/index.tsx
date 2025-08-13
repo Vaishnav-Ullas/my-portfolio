@@ -46,7 +46,7 @@ const Timeline = forwardRef<HTMLElement>((props, sectionRef) => {
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-white text-center mb-10">My Journey</h2>
                 <p className="text-center text-gray-200 mb-12">
-                    Explore key milestones and experiences in my professional journey. As you scroll, details about each year will gracefully appear, providing a chronological overview of my growth and contributions.
+                    Follow my professional journey from past to present. This overview showcases my career progression and the development of the skills and expertise I bring to every project.
                 </p>
                 <div className="relative w-full max-w-4xl mx-auto">
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-600 h-full"></div>
