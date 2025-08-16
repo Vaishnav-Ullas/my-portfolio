@@ -1,8 +1,0 @@
-/* app/components/Hero/Hero.module.css */
-
-/* Styles for .heroSection, .container, .title, .subtitle, .buttonContainer, */
-/* .primaryButton, .secondaryButton were moved to inline Tailwind classes in Hero/index.tsx. */
-
-.particlesContainer {
-    z-index: -1;
-} 
