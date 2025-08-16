@@ -38,7 +38,7 @@ export default function FloatingShapes() {
     maxDelay: 6,
     minDuration: 30,
     maxDuration: 60,
-    count: 100 // Adjust this number to control density
+    count: 50 // Adjust this number to control density
   };
 
   const shapes = useMemo(() => generateRandomShapes(shapeConfig), []);
@@ -75,6 +75,7 @@ export default function FloatingShapes() {
         <motion.div
           key={index}
           className="absolute"
+          suppressHydrationWarning
           style={{
             left: shape.x,
             top: shape.y,
@@ -95,6 +96,7 @@ export default function FloatingShapes() {
         >
           <div 
             className="bg-gradient-to-br from-blue-400/30 to-purple-500/30 backdrop-blur-sm border border-white/10"
+            suppressHydrationWarning
             style={{
               width: shape.size,
               height: shape.size,
