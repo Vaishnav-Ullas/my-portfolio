@@ -150,8 +150,36 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                 >
                     Hello, I&apos;m Vaishnav!
                     <br />
-                    A <span className="text-blue-400">{text}</span>
-                    <span className={`typing-cursor text-blue-400 ${styles.cursor}`}>|</span>
+                    A <motion.span 
+                        className="text-blue-400"
+                        key={text}
+                        initial={{ opacity: 1, y: 20, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.8 }}
+                        transition={{ 
+                            duration: 0.5, 
+                            ease: "easeOut" as const,
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 15
+                        }}
+                    >
+                        {text}
+                    </motion.span>
+                    <motion.span 
+                        className={`typing-cursor text-blue-400 ${styles.cursor}`}
+                        animate={{ 
+                            opacity: [1, 0, 1],
+                            scale: [1, 1.2, 1]
+                        }}
+                        transition={{ 
+                            duration: 1.5, 
+                            repeat: Infinity,
+                            ease: "easeInOut" as const
+                        }}
+                    >
+                        |
+                    </motion.span>
                 </motion.h1>
                 <motion.p 
                     className="text-xl text-gray-200 mb-8"
