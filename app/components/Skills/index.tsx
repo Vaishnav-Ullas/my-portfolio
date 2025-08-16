@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const skillsData = {
     "Programming Languages": ["JavaScript (ES6+)", "TypeScript", "Python", "HTML5", "CSS3 / SCSS"],
@@ -9,57 +10,85 @@ const skillsData = {
 };
 
 const SkillsSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.1,
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
       }
-    );
-
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
     }
+  };
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
       }
-    };
-  }, []);
+    }
+  };
+
+  const skillVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
-    <div ref={sectionRef} className="w-full h-full bg-gray-800 rounded-lg p-6">
-      <h3 className={`text-3xl font-bold text-white mb-6 text-center transition-all duration-700 ease-out ${isVisible ? 'animate-fade-in-down' : 'opacity-0 translate-y-[-15px]'}`}>
+    <motion.div 
+      className="w-full h-full bg-gray-800 rounded-lg p-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
+      <motion.h3 
+        className="text-3xl font-bold text-white mb-6 text-center"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         Skills & Expertise
-      </h3>
+      </motion.h3>
       <div className="space-y-6">
         {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
-          <div key={category} className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: `${categoryIndex * 150}ms`}}>
+          <motion.div 
+            key={category} 
+            className=""
+            variants={categoryVariants}
+          >
             <h4 className="text-xl font-semibold text-gray-200 mb-3">{category}</h4>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, skillIndex) => (
-                 <span
-                    key={skill}
-                    className={`bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1.5 rounded-md shadow-sm hover:bg-gray-600 transition-all duration-300 cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-                    style={{ transitionDelay: `${categoryIndex * 150 + (skillIndex + 1) * 50}ms` }}
+                <motion.span
+                  key={skill}
+                  className="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1.5 rounded-md shadow-sm hover:bg-gray-600 transition-all duration-300 cursor-default"
+                  variants={skillVariants}
+                  whileHover={{ 
+                    scale: 1.05,
+                    backgroundColor: "#4B5563"
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

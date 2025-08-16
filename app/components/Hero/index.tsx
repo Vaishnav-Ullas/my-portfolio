@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState, useCallback, RefObject } from 'react';
+import { motion } from 'framer-motion';
 import Particles from 'react-tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { loadSlim } from 'tsparticles-slim';
@@ -141,29 +142,56 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                 className="absolute top-0 left-0 w-full h-full z-0"
             />
             <div className="container mx-auto px-4 relative z-10">
-                <h1 className="text-4xl md:text-5xl font-poppins font-extrabold text-white mb-4">
+                <motion.h1 
+                    className="text-4xl md:text-5xl font-poppins font-extrabold text-white mb-4"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     Hello, I&apos;m Vaishnav!
                     <br />
                     A <span className="text-blue-400">{text}</span>
                     <span className={`typing-cursor text-blue-400 ${styles.cursor}`}>|</span>
-                </h1>
-                <p className="text-xl text-gray-200 mb-8">
+                </motion.h1>
+                <motion.p 
+                    className="text-xl text-gray-200 mb-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                >
                   Continuously learning, Constantly building, Always evolving!
-                </p>
-                <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row items-center justify-center">
-                    <button 
+                </motion.p>
+                <motion.div 
+                    className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                >
+                    <motion.button 
                         onClick={() => scrollToSection(projectsRef)} 
                         className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+                        whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                         View My Work
-                    </button>
-                    <button 
+                    </motion.button>
+                    <motion.button 
                         onClick={() => scrollToSection(contactRef)} 
                         className="border border-blue-600 text-blue-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition duration-300"
+                        whileHover={{ 
+                            scale: 1.05,
+                            backgroundColor: "rgba(59, 130, 246, 0.1)"
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                         Get In Touch
-                    </button>
-                </div>
+                    </motion.button>
+                </motion.div>
             </div>
         </section>
     );

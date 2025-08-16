@@ -9,6 +9,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and CSS M
 - **Performance Optimized** - Built with Next.js for optimal loading speeds
 - **TypeScript** - Type-safe development for better code quality
 - **CSS Modules** - Scoped styling for maintainable components
+- **Framer Motion** - Smooth, performant animations and transitions
 - **Intersection Observer** - Smooth scroll animations and effects
 - **SEO Friendly** - Optimized for search engines
 
@@ -17,6 +18,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and CSS M
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: CSS Modules
+- **Animations**: Framer Motion
 - **Icons**: Custom SVG icons
 - **Deployment**: Vercel-ready
 - **Package Manager**: npm

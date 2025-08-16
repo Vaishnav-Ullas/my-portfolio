@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from '../ProjectCard'; // Path is now ../ProjectCard/index.tsx
 // import styles from './Projects.module.css'; // No longer needed if all styles are inline
 import ssd_failure from '../../../public/SSD_failure.png';
@@ -34,25 +35,71 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
         }
     ];
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut" as const
+            }
+        }
+    };
+
     return (
         <section id="projects" ref={ref} className="py-16 bg-gray-950 relative z-10">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-white text-center mb-10">My Projects</h2>
-                <p className="text-center text-gray-200 mb-8">
+                <motion.h2 
+                    className="text-3xl font-bold text-white text-center mb-10"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    My Projects
+                </motion.h2>
+                <motion.p 
+                    className="text-center text-gray-200 mb-8"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                >
                     A showcase of selected projects demonstrating expertise in building robust software solutions, strategic problem-solving, and functional design.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </motion.p>
+                <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                >
                     {projects.map((project, index) => (
-                        <ProjectCard
+                        <motion.div
                             key={index}
-                            title={project.title}
-                            description={project.description}
-                            image={project.image}
-                            imageAlt={project.imageAlt}
-                            // link={project.link}
-                        />
+                            variants={itemVariants}
+                        >
+                            <ProjectCard
+                                title={project.title}
+                                description={project.description}
+                                image={project.image}
+                                imageAlt={project.imageAlt}
+                                // link={project.link}
+                            />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
