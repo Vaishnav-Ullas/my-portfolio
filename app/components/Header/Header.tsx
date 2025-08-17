@@ -4,7 +4,7 @@ import { DesktopNavigation } from './DesktopNavigation';
 import { MobileMenuButton } from './MobileMenuButton';
 import { MobileNavigation } from './MobileNavigation';
 import { useScrollDetection } from './hooks/useScrollDetection';
-import { NAVIGATION_ITEMS, SCROLL_THRESHOLD } from './constants';
+import { SCROLL_THRESHOLD } from './constants';
 import type { HeaderProps } from './types';
 
 const Header: React.FC<HeaderProps> = ({ 

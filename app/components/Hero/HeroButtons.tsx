@@ -93,7 +93,7 @@ export const HeroButtons: React.FC<HeroProps> = ({ projectsRef }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             >
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social) => (
                     <motion.a
                         key={social.name}
                         href={social.url}
