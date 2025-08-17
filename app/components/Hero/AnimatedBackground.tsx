@@ -21,7 +21,7 @@ export const AnimatedBackground = () => {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-32 h-32 md:w-96 md:h-96 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-lg md:blur-3xl"
       />
       
       <motion.div
@@ -34,21 +34,21 @@ export const AnimatedBackground = () => {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute bottom-1/4 right-1/4 w-40 h-40 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+        className="absolute bottom-1/4 right-1/4 w-32 h-32 md:w-80 md:h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-lg md:blur-3xl"
       />
 
       <motion.div
         animate={{
-          scale: [1, 1.5, 1],
-          x: [0, 100, 0],
-          y: [0, -50, 0],
+          scale: [1, 1.2, 1],
+          x: [0, 15, 0],
+          y: [0, -15, 0],
         }}
         transition={{
           duration: 30,
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-1/2 right-1/3 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/25 to-blue-500/25 rounded-full blur-2xl"
+        className="absolute top-1/2 right-1/4 md:right-1/3 w-24 h-24 md:w-64 md:h-64 bg-gradient-to-r from-cyan-500/25 to-blue-500/25 rounded-full blur-lg md:blur-xl"
       />
 
       {/* Grid pattern overlay */}

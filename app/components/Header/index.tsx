@@ -12,6 +12,16 @@ interface HeaderProps {
 const Header = ({ aboutRef, timelineRef, projectsRef, contactRef }: HeaderProps) => {
     const { scrollToSection } = useScrollToSection();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const handleNavClick = (ref: RefObject<HTMLElement | null>) => {
         scrollToSection(ref);
@@ -23,9 +33,15 @@ const Header = ({ aboutRef, timelineRef, projectsRef, contactRef }: HeaderProps)
     };
 
     return (
-        <header className="bg-gray-950 shadow-sm py-4 relative z-20">
+        <header className={`fixed top-0 left-0 right-0 py-4 z-50 transition-all duration-300 ${
+            isScrolled 
+                ? 'bg-gray-950 shadow-sm' 
+                : 'md:bg-transparent bg-gray-950 shadow-sm'
+        }`}>
             <div className="container mx-auto px-4 flex justify-between items-center">
-                <h1 className="text-2xl md:text-3xl font-black text-white font-dancing-script">Vaishnav</h1>
+                <h1 className="text-2xl md:text-3xl font-black font-dancing-script">
+                    <span className="gradient-text">Vaishnav</span>
+                </h1>
                 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:block">

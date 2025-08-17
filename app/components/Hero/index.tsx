@@ -10,7 +10,7 @@ import type { HeroProps } from './types';
 
 const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, ref) => {
     return (
-        <section id="hero" ref={ref} className="bg-gray-800 h-[calc(100vh-4rem)] flex flex-col justify-center items-center relative">
+        <section id="hero" ref={ref} className="bg-gray-800 h-screen pt-16 flex flex-col justify-center items-center relative">
             {/* Beautiful animated background */}
             <AnimatedBackground />
             
