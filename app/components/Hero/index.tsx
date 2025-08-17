@@ -5,19 +5,23 @@ import { HeroTitle } from './HeroTitle';
 import { HeroDescription } from './HeroDescription';
 import { HeroButtons } from './HeroButtons';
 import { AnimatedBackground } from './AnimatedBackground';
+import { ScrollIndicator } from './ScrollIndicator';
 import type { HeroProps } from './types';
 
 const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, ref) => {
     return (
-        <section id="hero" ref={ref} className="bg-gray-800 py-20 text-center min-h-screen flex flex-col justify-center items-center relative">
+        <section id="hero" ref={ref} className="bg-gray-800 h-[calc(100vh-4rem)] flex flex-col justify-center items-center relative">
             {/* Beautiful animated background */}
             <AnimatedBackground />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center flex-1">
                 <HeroTitle />
                 <HeroDescription />
                 <HeroButtons projectsRef={projectsRef} contactRef={contactRef} />
             </div>
+            
+            {/* Animated scroll indicator */}
+            <ScrollIndicator />
         </section>
     );
 });

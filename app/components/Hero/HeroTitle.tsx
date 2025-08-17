@@ -15,7 +15,7 @@ export const HeroTitle = () => {
             Hello, I&apos;m Vaishnav!
             <br />
             A <motion.span 
-                className="text-blue-400"
+                className="gradient-text"
                 key={text}
                 initial={{ opacity: 1, y: 20, scale: 0.8 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -30,7 +30,7 @@ export const HeroTitle = () => {
             >
                 {text}
             </motion.span>
-            <span className="text-blue-400">|</span>
+            <span className="gradient-text">|</span>
         </motion.h1>
     );
 };
