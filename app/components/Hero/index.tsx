@@ -2,6 +2,7 @@
 
 import React, { forwardRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Icon } from '@iconify/react';
 import { useScrollToSection } from '../../hooks/useScrollToSection';
 import AnimatedBackground from './AnimatedBackground';
 
@@ -60,7 +61,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                     Hello, I&apos;m Vaishnav!
                     <br />
                     A <motion.span 
-                        className="text-blue-400"
+                        className="gradient-text-hover bg-clip-text text-transparent"
                         key={text}
                         initial={{ opacity: 1, y: 20, scale: 0.8 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -75,7 +76,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                     >
                         {text}
                     </motion.span>
-                    <span className="text-blue-400">|</span>
+                    <span className="gradient-text">|</span>
                 </motion.h1>
                 
                 <motion.p 
@@ -95,7 +96,11 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                 >
                     <motion.button 
                         onClick={() => scrollToSection(projectsRef)} 
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+                        className="relative px-8 py-4 text-lg rounded-xl font-semibold overflow-hidden group inline-flex items-center"
+                        style={{
+                            background: 'linear-gradient(to right, #2563eb, #9333ea)',
+                            boxShadow: '0 4px 15px rgba(96, 165, 250, 0.2)'
+                        }}
                         whileHover={{ 
                             scale: 1.05,
                             boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
@@ -103,21 +108,21 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ projectsRef, contactRef }, re
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
+                        <Icon icon="material-symbols:code" className="w-5 h-5 mr-2" />
                         View My Work
                     </motion.button>
                     
-                    <motion.button 
-                        onClick={() => scrollToSection(contactRef)} 
-                        className="border border-blue-600 text-blue-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition duration-300"
-                        whileHover={{ 
-                            scale: 1.05,
-                            backgroundColor: "rgba(59, 130, 246, 0.1)"
-                        }}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                        Get In Touch
-                    </motion.button>
+                        <button 
+                            className="border-2 border-purple-500 text-purple-300 hover:bg-purple-500/10 px-8 py-4 text-lg font-semibold rounded-xl inline-flex items-center"
+                        >
+                            <Icon icon="material-symbols:download" className="w-5 h-5 mr-2" />
+                            Download CV
+                        </button>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
