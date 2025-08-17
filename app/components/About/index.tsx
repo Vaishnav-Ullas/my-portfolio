@@ -70,7 +70,6 @@ const About = forwardRef<HTMLElement>((props, ref) => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
                         >
                             I specialise in full-stack development, particularly with Next.js, 
                             React, and Node.js but I&apos;m always ready to pick up new technologies 
@@ -84,7 +83,6 @@ const About = forwardRef<HTMLElement>((props, ref) => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
                         >
                             I&apos;m always eager to connect with others to build exceptional digital experiences. 
                             If you have an opening that might be a good fit, 
@@ -105,7 +103,12 @@ const About = forwardRef<HTMLElement>((props, ref) => {
                                     boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
                                 }}
                                 whileTap={{ scale: 0.95 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                transition={{ 
+                                    type: "spring", 
+                                    stiffness: 400, 
+                                    damping: 17,
+                                    delay: 0.2
+                                }}
                             >
                                 Let&apos;s Connect
                             </motion.a>

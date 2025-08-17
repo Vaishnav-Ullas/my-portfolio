@@ -32,17 +32,19 @@ const Contact = forwardRef<HTMLElement>((props, ref) => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    transition={{ 
+                        duration: 0.8, 
+                        delay: 0.4, 
+                        ease: "easeOut",
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 17
+                    }}
                     whileHover={{ 
                         scale: 1.05,
                         boxShadow: "0 15px 30px rgba(59, 130, 246, 0.4)"
                     }}
                     whileTap={{ scale: 0.95 }}
-                    transition={{ 
-                        type: "spring", 
-                        stiffness: 400, 
-                        damping: 17 
-                    }}
                 >
                     Say Hello
                 </motion.a>

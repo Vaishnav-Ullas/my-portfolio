@@ -58,7 +58,7 @@ const generateRandomShapes = (config: ShapeConfig) => {
 };
 
 export default function FloatingShapes() {
-  const shapeConfig: ShapeConfig = {
+  const shapeConfig = useMemo(() => ({
     minSize: 4,  // Smaller minimum size for mobile
     maxSize: 24, // Smaller maximum size for mobile
     minDelay: 0,
@@ -66,12 +66,12 @@ export default function FloatingShapes() {
     minDuration: 30,
     maxDuration: 60,
     count: 40 // Reduced count for better mobile performance
-  };
+  }), []);
 
-  const shapes = useMemo(() => generateRandomShapes(shapeConfig), []);
+  const shapes = useMemo(() => generateRandomShapes(shapeConfig), [shapeConfig]);
 
   // Extended code symbols for more variety
-  const codeSymbols = [
+  const codeSymbols = useMemo(() => [
     // Basic operators and symbols
     '<>', '{}', '[]', '/>', '!=', '&&', '||', '==', '=>', '++', '--', '//',
     '/*', '*/', '()', '::', '->', '<<', '>>', '**', '%%', '??', '?.', '?:',
@@ -82,7 +82,7 @@ export default function FloatingShapes() {
     // Additional symbols for density
     'let', 'var', 'const', 'if', 'for', 'map', 'async', 'await', 'try',
     'class', 'new', 'this', '...', '=>>', '<<='
-  ];
+  ], []);
 
   // Generate random positions once and keep them stable
   const symbolPositions = useMemo(() => {
@@ -93,7 +93,7 @@ export default function FloatingShapes() {
         y: `${Math.random() * 70 + 15}%`  // Increased padding to 15% from edges
       };
     });
-  }, []); // Empty dependency array means this runs only once
+  }, [codeSymbols]); // Added codeSymbols as dependency
 
   return (
     <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">

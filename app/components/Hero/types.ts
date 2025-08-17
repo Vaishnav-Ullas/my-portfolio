@@ -1,6 +1,5 @@
 export interface HeroProps {
     projectsRef: React.RefObject<HTMLElement | null>;
-    contactRef: React.RefObject<HTMLElement | null>;
 }
 
 export interface ShapeConfig {

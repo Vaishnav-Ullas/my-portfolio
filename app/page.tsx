@@ -2,7 +2,7 @@
 'use client'; // This directive is needed for client-side interactivity like our JS scroll/typing effects
 
 import React, { useRef } from 'react';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Timeline from './components/Timeline';
@@ -25,7 +25,7 @@ export default function Home() {
                 contactRef={contactRef}
             />
             <main>
-                <Hero projectsRef={projectsRef} contactRef={contactRef} />
+                <Hero projectsRef={projectsRef} />
                 <About ref={aboutRef} />
                 <Timeline ref={timelineRef} />
                 <Projects ref={projectsRef} />

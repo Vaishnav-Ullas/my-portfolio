@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion';
+
 export interface SkillItem {
     name: string;
     icon: string;
@@ -10,20 +12,11 @@ export interface SkillsDataType {
 export interface SkillCategoryProps {
     title: string;
     skills: SkillItem[];
-    variants: {
-        hidden: object;
-        visible: object;
-    };
-    skillVariants: {
-        hidden: object;
-        visible: object;
-    };
+    variants: Variants;
+    skillVariants: Variants;
 }
 
 export interface SkillBadgeProps {
     skill: SkillItem;
-    variants: {
-        hidden: object;
-        visible: object;
-    };
+    variants: Variants;
 }

@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Icon } from '@iconify/react';
 
 export const ScrollIndicator = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
